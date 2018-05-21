@@ -23,4 +23,9 @@ export class DataProvider {
   getTendency(serverIp: string){
     return this.http.get("http://" + serverIp + ":5000/tendency");
   }
+
+  getDataWithLimit(serverIp: string, limit: number){
+
+    return this.http.get("http://" + serverIp + ":5000/weather_history?limit=" + limit);
+  }
 }

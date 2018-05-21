@@ -1,3 +1,24 @@
 page-summary {
+    .valueItem{
+        margin-right: auto;
+        text-align: center;
+        font-size: 2.5em;
+        font-weight: bold;
+        position: relative;
+        display: table !important;
+        margin-left: auto;
+        background: transparent !important;
+    }
 
+    .values{
+        border: 5px solid;
+        border-radius: 50%; 
+        height: 4em; 
+        width: 4em;
+        font-size: 1.5em;
+        padding: 5% 3px 0 3px;
+        margin-bottom: 5px;
+        text-align: center;
+        background: transparent !important;
+    }
 }

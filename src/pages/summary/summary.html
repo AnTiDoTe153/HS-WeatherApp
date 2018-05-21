@@ -17,5 +17,16 @@
 
 
 <ion-content padding>
+  <div class="temperature">
+    <div *ngIf="lastValue!=null" class="valueItem">
+      <div class="values">
+          <ion-icon *ngIf="enableUpArrow()" name="arrow-up"></ion-icon><br>
+        {{lastValue.temperature}}<br>
+        <ion-icon *ngIf="enableDownArrow()" name="arrow-down"></ion-icon>
+      </div>
+      Temperatures
+    </div>
+  </div>
+
 
 </ion-content>
