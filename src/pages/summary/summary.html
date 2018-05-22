@@ -17,16 +17,83 @@
 
 
 <ion-content padding>
-  <div class="temperature">
-    <div *ngIf="lastValue!=null" class="valueItem">
-      <div class="values">
-          <ion-icon *ngIf="enableUpArrow()" name="arrow-up"></ion-icon><br>
-        {{lastValue.temperature}}<br>
-        <ion-icon *ngIf="enableDownArrow()" name="arrow-down"></ion-icon>
+
+  <ion-list no-lines>
+
+    <ion-img style="position: fixed; top: 0%; left: 0%; right: 0%; bottom:0%; width: 100%; height: 100%;" class="logo" src="assets\\imgs\\canva-photo-editor.png"></ion-img>
+    <ion-item>
+
+      <div class="temperature">
+        <div *ngIf="lastValue!=null" class="valueItem">
+          <div class="values">
+            <ion-icon *ngIf="showArrow('temperature_tendency', 1)" name="arrow-up"></ion-icon>
+            <br> {{lastValue.temperature}}°C
+            <br>
+            <ion-icon *ngIf="showArrow('temperature_tendency', -1)" name="arrow-down"></ion-icon>
+          </div>
+          <div style="color:#1e3c72">Temperature</div>
+        </div>
       </div>
-      Temperatures
-    </div>
-  </div>
+
+    </ion-item>
+
+    <ion-item>
+      <div class="other">
+        <ion-row>
+
+          <ion-col>
+            <div *ngIf="lastValue!=null" class="valueItemSmall">
+              <div class="values">
+                <ion-icon *ngIf="showArrow('humidity_tendency', 1)" name="arrow-up"></ion-icon>
+                <br> {{lastValue.humidity}}%
+                <br>
+                <ion-icon *ngIf="showArrow('humidity_tendency', -1)" name="arrow-down"></ion-icon>
+              </div>
+              <div style="color:#1e3c72">Humidity</div>
+            </div>
+          </ion-col>
+
+          <ion-col>
+            <div *ngIf="lastValue!=null" class="valueItemSmall">
+              <div class="values">
+                <ion-icon *ngIf="showArrow('pressure_tendency', 1)" name="arrow-up"></ion-icon>
+                <br> {{lastValue.pressure}}Pa
+                <br>
+                <ion-icon *ngIf="showArrow('pressure_tendency', -1)" name="arrow-down"></ion-icon>
+              </div>
+              <div style="color:#1e3c72">Pressure</div>
+            </div>
+          </ion-col>
+
+        </ion-row>
+
+      </div>
+
+
+    </ion-item>
+    <ion-item>
+      <ion-card *ngIf="lastValue!=null">
+        <ion-card-header style="font-size: 25px; font-weight: bold; color: white;">
+          Real feel: {{lastValue.heat_index}}°C
+          <ion-icon name="information-circle" (click)="showHeatIndexAlert()"></ion-icon>
+        </ion-card-header>
+
+        <ion-card-content text-wrap>
+          <p style="color: white; text-overflow:ellipsis;font-size: 17px">{{getHeatIndexRec()}}</p>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card *ngIf="lastValue!=null">
+        <ion-card-header style="font-size: 25px; font-weight: bold; color: white">
+          Dew point: {{lastValue.dew_point}}°C
+        </ion-card-header>
+
+        <ion-card-content text-wrap>
+          <p style="color: white; text-overflow:ellipsis;font-size: 17px">The dew point is the temperature to which air must be cooled to become saturated with water vapor.</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 
 
 </ion-content>

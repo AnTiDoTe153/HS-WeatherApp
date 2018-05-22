@@ -17,16 +17,26 @@ export class GraphPage {
   private humidityChart: any;
   private pressureChart:any;
 
-  private serverIp: string = "192.168.137.222";
+  private serverIp: string;
+  private repeatInterval: any;
 
   constructor(private alertController: AlertController, private dataProvider: DataProvider, public navCtrl: NavController) {
+    this.serverIp = sessionStorage.getItem("serverIp");
+      this.loadData();
+      this.repeatInterval = setInterval(() =>{this.loadData()}, 5000);
+
   }
 
   loadData(){
     this.dataProvider.getData(this.serverIp).subscribe(data =>{
-      this.data = data.json();
+      this.data = data.json().reverse();
+      console.log(this.data);
       this.refreshChart();
     });
+  }
+
+  ngOnDestroy(){
+    clearInterval(this.repeatInterval);
   }
 
   changeServerIp(){

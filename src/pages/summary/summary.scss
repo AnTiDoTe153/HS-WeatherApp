@@ -1,8 +1,28 @@
 page-summary {
+
     .valueItem{
         margin-right: auto;
         text-align: center;
-        font-size: 2.5em;
+        font-size: 1.8em;
+        font-weight: bold;
+        position: relative;
+        display: table !important;
+        margin-left: auto;
+        background: transparent !important;
+    }
+
+    ion-list{
+        background: transparent !important;
+    }
+
+    ion-item{
+        background: transparent !important;
+    }
+
+    .valueItemSmall{
+        margin-right: auto;
+        text-align: center;
+        font-size: 0.8em;
         font-weight: bold;
         position: relative;
         display: table !important;
@@ -11,14 +31,25 @@ page-summary {
     }
 
     .values{
-        border: 5px solid;
+        border: 0px solid;
         border-radius: 50%; 
-        height: 4em; 
-        width: 4em;
+        height: 5em; 
+        width: 5em;
         font-size: 1.5em;
-        padding: 5% 3px 0 3px;
+        padding: 10% 3px 0 3px;
         margin-bottom: 5px;
         text-align: center;
-        background: transparent !important;
+        color: white;
+        background-clip: content-box;
+        background: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
     }
+
+    .backRed{background-color:red;}
+
+    ion-card{
+        background: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%) !important;
+        background-clip: content-box;
+        border-radius: 5px;
+    }
+
 }

@@ -4,8 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { GraphPage } from '../pages/graph/graph';
-import { ListPage } from '../pages/list/list';
 import { ResultsPage } from '../pages/results/results';
+import { SettingsPage } from '../pages/settings/settings';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +23,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Results', component: ResultsPage },
-      { title: 'List', component: ListPage }
+      { title: 'Settings', component: SettingsPage }
     ];
 
   }
@@ -32,6 +32,9 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
+      sessionStorage.setItem("serverIp", "192.168.137.222");
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

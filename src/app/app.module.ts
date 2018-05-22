@@ -5,10 +5,10 @@ import { AlertController } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { GraphPage } from '../pages/graph/graph';
-import { ListPage } from '../pages/list/list';
 import { SummaryPage } from '../pages/summary/summary';
 import { HttpModule } from '@angular/http';
 import { ResultsPage } from '../pages/results/results';
+import { SettingsPage } from '../pages/settings/settings';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,9 +18,9 @@ import { DataProvider } from '../providers/data/data';
   declarations: [
     MyApp,
     GraphPage,
-    ListPage,
     SummaryPage,
-    ResultsPage
+    ResultsPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -31,9 +31,9 @@ import { DataProvider } from '../providers/data/data';
   entryComponents: [
     MyApp,
     GraphPage,
-    ListPage,
     SummaryPage,
-    ResultsPage
+    ResultsPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,
