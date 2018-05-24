@@ -27,8 +27,9 @@ export class SummaryPage {
 
   private repeatInterval: any;
   private weatherStatus: number;
+  private clouds: number;
+  private rain: boolean;
 
-  nbDrop: number = 858;
 
   private heatIndexRecommendations = {
     low: "Caution: fatigue is possible with prolonged exposure and activity. Continuing activity could result in heat cramps.",
@@ -68,6 +69,21 @@ export class SummaryPage {
 
   }
 
+  displayCloud(value: number){
+    if(this.clouds > 10 && this.clouds <= 25){
+      return value < 2;
+    }
+    if(this.clouds > 25 && this.clouds <= 50){
+      return value < 3;
+    }
+    if(this.clouds > 50 && this.clouds <= 75){
+      return value < 4;
+    }
+    if(this.clouds > 75 && this.clouds <= 100){
+      return value < 5;
+    }
+  }
+
   ngOnDestroy() {
     clearInterval(this.repeatInterval);
   }
@@ -79,11 +95,40 @@ export class SummaryPage {
     });
   }
 
+  setWeatherStatus(){
+    if(this.clouds < 50 && !this.rain){
+        this.weatherStatus = 1;
+    }
+    if(this.clouds > 50 && !this.rain){
+      this.weatherStatus = 2;
+    }
+    if(this.rain){
+      this.weatherStatus = 3;
+    }
+  }
+
+  setRainStatus(){
+    this.rain = true;
+  }
+
+  loadClouds(){
+    return this.dataProvider.getCloud(this.serverIp, 1).toPromise().then(result =>{
+      //this.clouds = result.json()[0];
+      this.clouds = 61.7;
+      console.log(this.clouds);
+    });
+  }
+
   loadData() {
     return this.loadValues().then(() => {
-      this.weatherStatus = 1;
+    }).then(() =>{
       this.loadTendencies();
-    })
+    }).then(() =>{
+      this.loadClouds();
+    }).then(() =>{
+      this.setWeatherStatus();
+      this.setRainStatus();
+    });
   }
 
   getHeatIndexRec() {
