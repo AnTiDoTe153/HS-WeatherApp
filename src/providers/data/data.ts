@@ -12,7 +12,6 @@ import { Data } from "../../models/data";
 export class DataProvider {
 
   constructor(public http: Http) {
-    console.log('Hello DataProvider Provider');
   }
 
   getData(serverIp: string){

@@ -9,6 +9,8 @@ page-summary {
         display: table !important;
         margin-left: auto;
         background: transparent !important;
+
+
     }
 
     ion-list{
@@ -31,6 +33,7 @@ page-summary {
     }
 
     .values{
+
         border: 0px solid;
         border-radius: 50%; 
         height: 5em; 
@@ -42,6 +45,8 @@ page-summary {
         color: white;
         background-clip: content-box;
         background: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+        margin-top: 10px;
+        -webkit-box-shadow: 0 0 20px #1e3c72;
     }
 
 
@@ -362,5 +367,277 @@ page-summary {
         }
       }
 
+
+
+
+
+
+
+      //Sun effects
+
+      body {
+        background:#2EB5E5 ;
+      }
+      
+      .sun { 
+        position: absolute;
+          z-index: -1;
+          top:5%;
+          left:5%;
+          right:0;
+          bottom:0;
+          width:70px;
+          height:70px;
+          border-radius:50%;	
+          background:white;
+          opacity:0.9;			
+          box-shadow: 0px 0px 40px 15px white;  
+      }
+      
+      .ray_box {
+        position: absolute;
+        margin: auto;
+          top:0px;
+          left:0;
+          right:0;
+          bottom:0;	
+        width:70px;  
+        -webkit-animation: ray_anim 120s linear infinite;
+        animation: ray_anim 120s linear infinite;
+      }
+      .ray {  
+          background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+              background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); 
+          margin-left:10px;
+          border-radius:80% 80% 0 0;
+          position:absolute;
+          opacity:0.1;
+      }
+      
+      .ray1 {    
+          height:170px;
+          width:30px;
+         -webkit-transform: rotate(180deg);
+          top:-175px;
+          left: 15px;
+      }
+      .ray2 {
+          height:100px;
+          width:8px;
+         -webkit-transform: rotate(220deg);
+          top:-90px;
+          left: 75px;
+      }
+      .ray3 {
+          height:170px;
+          width:50px;
+         -webkit-transform: rotate(250deg);
+          top:-80px;
+          left: 100px;
+      }
+      .ray4 {
+          height:120px;
+          width:14px;
+         -webkit-transform: rotate(305deg);
+          top:30px;
+          left: 100px;
+      }
+      .ray5 {
+          height:140px;
+          width:30px;
+         -webkit-transform: rotate(-15deg);
+          top:60px;
+          left: 40px;
+      }
+      .ray6 {
+          height:90px;
+          width:50px;
+         -webkit-transform: rotate(30deg);
+          top:60px;
+          left: -40px;
+      }
+      .ray7 {
+          height:180px;
+          width:10px;
+         -webkit-transform: rotate(70deg);
+          top:-35px;
+          left: -40px;
+      }
+      .ray8 {
+          height:120px;
+          width:30px;
+         -webkit-transform: rotate(100deg);
+          top:-45px;
+          left:-90px;
+      }
+      .ray9 {
+          height:80px;
+          width:10px;
+         -webkit-transform: rotate(120deg);
+          top:-65px;
+          left:-60px;
+      }
+      .ray10 {
+          height:190px;
+          width:23px;
+         -webkit-transform: rotate(150deg);
+          top:-185px;
+          left: -60px;
+      }
+      
+      
+      @-webkit-keyframes ray_anim { 
+              0% { -webkit-transform: rotate(0deg); transform: rotate(0deg);}    
+          100% { -webkit-transform: rotate(360deg); transform: rotate(360deg);}
+      }
+
+
+    //cloud effects
+
+    #background-wrap {
+        bottom: 0;
+        left: 0;
+        padding-top: 50px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: -1;
+    }
     
+    /* KEYFRAMES */
+    
+    @-webkit-keyframes animateCloud {
+        0% {
+            margin-left: -1000px;
+        }
+        100% {
+            margin-left: 100%;
+        }
+    }
+    
+    @-moz-keyframes animateCloud {
+        0% {
+            margin-left: -1000px;
+        }
+        100% {
+            margin-left: 100%;
+        }
+    }
+    
+    @keyframes animateCloud {
+        0% {
+            margin-left: -1000px;
+        }
+        100% {
+            margin-left: 100%;
+        }
+    }
+    
+    /* ANIMATIONS */
+    
+    .x1 {
+        -webkit-animation: animateCloud 35s linear infinite;
+        -moz-animation: animateCloud 35s linear infinite;
+        animation: animateCloud 35s linear infinite;
+        
+        -webkit-transform: scale(0.65);
+        -moz-transform: scale(0.65);
+        transform: scale(0.65);
+    }
+    
+    .x2 {
+        -webkit-animation: animateCloud 20s linear infinite;
+        -moz-animation: animateCloud 20s linear infinite;
+        animation: animateCloud 20s linear infinite;
+        
+        -webkit-transform: scale(0.3);
+        -moz-transform: scale(0.3);
+        transform: scale(0.3);
+    }
+    
+    .x3 {
+        -webkit-animation: animateCloud 30s linear infinite;
+        -moz-animation: animateCloud 30s linear infinite;
+        animation: animateCloud 30s linear infinite;
+        
+        -webkit-transform: scale(0.5);
+        -moz-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    
+    .x4 {
+        -webkit-animation: animateCloud 18s linear infinite;
+        -moz-animation: animateCloud 18s linear infinite;
+        animation: animateCloud 18s linear infinite;
+        
+        -webkit-transform: scale(0.4);
+        -moz-transform: scale(0.4);
+        transform: scale(0.4);
+    }
+    
+    .x5 {
+        -webkit-animation: animateCloud 25s linear infinite;
+        -moz-animation: animateCloud 25s linear infinite;
+        animation: animateCloud 25s linear infinite;
+        
+        -webkit-transform: scale(0.55);
+        -moz-transform: scale(0.55);
+        transform: scale(0.55);
+    }
+    
+    /* OBJECTS */
+    
+    .cloud {
+        background: #fff;
+        background: -moz-linear-gradient(top,  #fff 5%, #f1f1f1 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#fff), color-stop(100%,#f1f1f1));
+        background: -webkit-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+        background: -o-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+        background: -ms-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+        background: linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1',GradientType=0 );
+        
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+        
+        -webkit-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    
+        height: 120px;
+        position: relative;
+        width: 350px;
+    }
+    
+    .cloud:after, .cloud:before {
+        background: #fff;
+        content: '';
+        position: absolute;
+        z-indeX: -1;
+    }
+    
+    .cloud:after {
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+    
+        height: 100px;
+        left: 50px;
+        top: -50px;
+        width: 100px;
+    }
+    
+    .cloud:before {
+        -webkit-border-radius: 200px;
+        -moz-border-radius: 200px;
+        border-radius: 200px;
+    
+        width: 180px;
+        height: 180px;
+        right: 50px;
+        top: -90px;
+    }
+
+    //make rain
 }

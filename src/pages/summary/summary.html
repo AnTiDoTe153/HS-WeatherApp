@@ -22,16 +22,12 @@
 <ion-content padding>
 
 
-
-
   <ion-list no-lines>
 
-
-
-    <ion-img style="position: fixed; top: 0%; left: 0%; right: 0%; bottom:0%; width: 100%; height: 100%;" class="logo" src="assets\\imgs\\canva-photo-editor.png"></ion-img>
+    <ion-img style="position: fixed; z-index: -2; top: 0%; left: 0%; right: 0%; bottom:0%; width: 100%; height: 100%;" class="logo" src="assets\\imgs\\canva-photo-editor.png"></ion-img>
     <ion-item>
       <div class="temperature">
-        <div *ngIf="lastValue!=null" class="valueItem">
+        <div *ngIf="lastValue!=null" class="valueItem effect1">
           <div class="values">
             <div *ngIf="weatherStatus == 1" class="forecast">
               <div class="forecast__sunny"></div>
@@ -139,5 +135,44 @@
       </ion-card>
     </ion-item>
   </ion-list>
+
+  <div *ngIf="weatherStatus == 1" class="sun">
+      <div class="ray_box">
+          <div class="ray ray1"></div>
+          <div class="ray ray2"></div>
+          <div class="ray ray3"></div>
+          <div class="ray ray4"></div>
+          <div class="ray ray5"></div>
+          <div class="ray ray6"></div>
+          <div class="ray ray7"></div>
+          <div class="ray ray8"></div>
+          <div class="ray ray9"></div>
+          <div class="ray ray10"></div>
+      </div>
+  </div>
+
+
+  <div id="background-wrap">
+      <div class="x1">
+          <div class="cloud"></div>
+      </div>
+  
+      <div class="x2">
+          <div class="cloud"></div>
+      </div>
+  
+      <div class="x3">
+          <div class="cloud"></div>
+      </div>
+  
+      <div class="x4">
+          <div class="cloud"></div>
+      </div>
+  
+      <div class="x5">
+          <div class="cloud"></div>
+      </div>
+  </div>
+
 
 </ion-content>
