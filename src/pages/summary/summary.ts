@@ -4,6 +4,7 @@ import { DataProvider } from '../../providers/data/data';
 import { Data } from '../../models/data';
 import { Tendency } from '../../models/tendency';
 import { AlertController } from 'ionic-angular';
+import { Renderer } from '@angular/core';
 /**
  * Generated class for the SummaryPage page.
  *
@@ -22,6 +23,7 @@ export class SummaryPage {
   private arrowDirection: Tendency;
 
   private repeatInterval: any;
+  private weatherStatus: number;
 
   private heatIndexRecommendations = {
     low: "Caution: fatigue is possible with prolonged exposure and activity. Continuing activity could result in heat cramps.",
@@ -33,11 +35,12 @@ export class SummaryPage {
   };
 
 
-  constructor(private alertController: AlertController, private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertController: AlertController, private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams, public renderer: Renderer) {
     this.loadData();
     this.repeatInterval = setInterval(()=>{
       this.loadData();
     }, 5000);
+ 
   }
 
   loadValues(){
@@ -66,6 +69,7 @@ export class SummaryPage {
 
   loadData(){
     return this.loadValues().then(() =>{
+      this.weatherStatus = 3;
       this.loadTendencies();
     })
   }
@@ -97,7 +101,17 @@ export class SummaryPage {
   }
 
   showArrow(property: string, value: number){
-    return this.arrowDirection != null && this.arrowDirection[property] == value;
+    return this.arrowDirection != null && this.arrowDirection[property] != value;
+  }
+
+  getArrowIcon(property: string){
+    if(this.arrowDirection != null){
+      if(this.arrowDirection[property] > 0){
+        return "arrow-up";
+      }else{
+        return "arrow-down";
+      }
+    }
   }
 
   showHeatIndexAlert(){
@@ -106,11 +120,6 @@ export class SummaryPage {
     alert.setTitle("Heat index");
     alert.setSubTitle("The heat index (HI) or humiture is a scientific index that combines air temperature and relative humidity, in shaded areas, to determine a human-perceived equivalent temperature, as how hot it would feel if the humidity were some other value in the shade. The result is also known as the \"felt air temperature\" or \"apparent temperature\".");
     alert.present();
-  }
-
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SummaryPage');
   }
 
 }

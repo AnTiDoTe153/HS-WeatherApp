@@ -4,6 +4,9 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+
+
 <ion-header>
 
   <ion-navbar color="primary">
@@ -18,18 +21,61 @@
 
 <ion-content padding>
 
+
+
+
   <ion-list no-lines>
+
+
 
     <ion-img style="position: fixed; top: 0%; left: 0%; right: 0%; bottom:0%; width: 100%; height: 100%;" class="logo" src="assets\\imgs\\canva-photo-editor.png"></ion-img>
     <ion-item>
-
       <div class="temperature">
         <div *ngIf="lastValue!=null" class="valueItem">
           <div class="values">
-            <ion-icon *ngIf="showArrow('temperature_tendency', 1)" name="arrow-up"></ion-icon>
-            <br> {{lastValue.temperature}}°C
+            <div *ngIf="weatherStatus == 1" class="forecast">
+              <div class="forecast__sunny"></div>
+            </div>
+
+            <div *ngIf="weatherStatus == 2" class="forecast">
+              <div class="forecast__cloudy">
+                <div class="forecast__cloudy__sun"></div>
+                <div class="forecast__cloudy__cloud forecast__cloudy__cloud--small">
+                </div>
+                <div class="forecast__cloudy__cloud forecast__cloudy__cloud--normal">
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="weatherStatus == 3" class="forecast">
+              <div class="forecast__rainy">
+                <div class="forecast__rainy__rain forecast__rainy__rain--one">
+                </div>
+                <div class="forecast__rainy__rain forecast__rainy__rain--two">
+                </div>
+                <div class="forecast__rainy__rain forecast__rainy__rain--three">
+                </div>
+                <div class="forecast__rainy__rain forecast__rainy__rain--four">
+                </div>
+                <div class="forecast__rainy__cloud forecast__rainy__cloud--grey"></div>
+              </div>
+            </div>
+
+            <div *ngIf="weatherStatus == 4" class="forecast">
+              <div class="forecast__snow">
+                <div class="forecast__snow__snow forecast__snow__snow--first"></div>
+                <div class="forecast__snow__snow forecast__snow__snow--second"></div>
+                <div class="forecast__snow__snow forecast__snow__snow--third"></div>
+                <div class="forecast__snow__snow forecast__snow__snow--fourth"></div>
+                <div class="forecast__snow__cloud forecast__snow__cloud--grey"></div>
+              </div>
+            </div>
+
+
+            {{lastValue.temperature}}°C
             <br>
-            <ion-icon *ngIf="showArrow('temperature_tendency', -1)" name="arrow-down"></ion-icon>
+
+            <ion-icon [name]="getArrowIcon('temperature_tendency')"></ion-icon>
           </div>
           <div style="color:#1e3c72">Temperature</div>
         </div>
@@ -43,11 +89,10 @@
 
           <ion-col>
             <div *ngIf="lastValue!=null" class="valueItemSmall">
-              <div class="values">
-                <ion-icon *ngIf="showArrow('humidity_tendency', 1)" name="arrow-up"></ion-icon>
-                <br> {{lastValue.humidity}}%
+              <div class="values"><br>
+                {{lastValue.humidity}}%
                 <br>
-                <ion-icon *ngIf="showArrow('humidity_tendency', -1)" name="arrow-down"></ion-icon>
+                <ion-icon [name]="getArrowIcon('humidity_tendency')"></ion-icon>
               </div>
               <div style="color:#1e3c72">Humidity</div>
             </div>
@@ -56,10 +101,10 @@
           <ion-col>
             <div *ngIf="lastValue!=null" class="valueItemSmall">
               <div class="values">
-                <ion-icon *ngIf="showArrow('pressure_tendency', 1)" name="arrow-up"></ion-icon>
-                <br> {{lastValue.pressure}}Pa
                 <br>
-                <ion-icon *ngIf="showArrow('pressure_tendency', -1)" name="arrow-down"></ion-icon>
+                {{lastValue.pressure}}Pa
+                <br>
+                <ion-icon [name]="getArrowIcon('pressure_tendency')"></ion-icon>
               </div>
               <div style="color:#1e3c72">Pressure</div>
             </div>
@@ -94,6 +139,5 @@
       </ion-card>
     </ion-item>
   </ion-list>
-
 
 </ion-content>
