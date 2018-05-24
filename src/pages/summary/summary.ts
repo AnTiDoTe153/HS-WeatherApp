@@ -5,7 +5,7 @@ import { Data } from '../../models/data';
 import { Tendency } from '../../models/tendency';
 import { AlertController } from 'ionic-angular';
 import { Renderer } from '@angular/core';
-import * as $ from 'jquery'
+import * as $ from 'jquery';
 
 /**
  * 
@@ -22,11 +22,13 @@ import * as $ from 'jquery'
 export class SummaryPage {
 
   private lastValue: Data;
-  private serverIp: string= "tzeny.ddns.net";
+  private serverIp: string = "tzeny.ddns.net";
   private arrowDirection: Tendency;
 
   private repeatInterval: any;
   private weatherStatus: number;
+
+  nbDrop: number = 858;
 
   private heatIndexRecommendations = {
     low: "Caution: fatigue is possible with prolonged exposure and activity. Continuing activity could result in heat cramps.",
@@ -37,9 +39,13 @@ export class SummaryPage {
     other: "Exposure to full sunshine can increase heat index values!"
   };
 
-
+  
   constructor(private alertController: AlertController, private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams, public renderer: Renderer) {
-    if(sessionStorage.getItem("serverIp") != null){
+
+
+    // Make it rain
+
+    if (sessionStorage.getItem("serverIp") != null) {
       this.serverIp = sessionStorage.getItem("serverIp");
     }
     this.loadData();

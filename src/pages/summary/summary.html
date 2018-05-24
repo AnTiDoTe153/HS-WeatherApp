@@ -21,10 +21,75 @@
 
 <ion-content padding>
 
-
   <ion-list no-lines>
+    <div>
 
-    <ion-img style="position: fixed; z-index: -2; top: 0%; left: 0%; right: 0%; bottom:0%; width: 100%; height: 100%;" class="logo" src="assets\\imgs\\canva-photo-editor.png"></ion-img>
+      <div class='rain'>
+          <div class='drop drop-1'></div>
+          <div class='drop drop-2'></div>
+          <div class='drop drop-3'></div>
+          <div class='drop drop-4'></div>
+          <div class='drop drop-5'></div>
+          <div class='drop drop-6'></div>
+          <div class='drop drop-7'></div>
+          <div class='drop drop-8'></div>
+          <div class='drop drop-9'></div>
+          <div class='drop drop-10'></div>
+        </div>
+        <div class='rain2'>
+          <div class='drop drop-1'></div>
+          <div class='drop drop-2'></div>
+          <div class='drop drop-3'></div>
+          <div class='drop drop-4'></div>
+          <div class='drop drop-5'></div>
+          <div class='drop drop-6'></div>
+          <div class='drop drop-7'></div>
+          <div class='drop drop-8'></div>
+          <div class='drop drop-9'></div>
+          <div class='drop drop-10'></div>
+        </div>
+        <div class='rain3'>
+          <div class='drop drop-1'></div>
+          <div class='drop drop-2'></div>
+          <div class='drop drop-3'></div>
+          <div class='drop drop-4'></div>
+          <div class='drop drop-5'></div>
+          <div class='drop drop-6'></div>
+          <div class='drop drop-7'></div>
+          <div class='drop drop-8'></div>
+          <div class='drop drop-9'></div>
+          <div class='drop drop-10'></div>
+        </div>
+        <div class='rain4'>
+          <div class='drop drop-1'></div>
+          <div class='drop drop-2'></div>
+          <div class='drop drop-3'></div>
+          <div class='drop drop-4'></div>
+          <div class='drop drop-5'></div>
+          <div class='drop drop-6'></div>
+          <div class='drop drop-7'></div>
+          <div class='drop drop-8'></div>
+          <div class='drop drop-9'></div>
+          <div class='drop drop-10'></div>
+        </div>
+        <div class='rain5'>
+          <div class='drop drop-1'></div>
+          <div class='drop drop-2'></div>
+          <div class='drop drop-3'></div>
+          <div class='drop drop-4'></div>
+          <div class='drop drop-5'></div>
+          <div class='drop drop-6'></div>
+          <div class='drop drop-7'></div>
+          <div class='drop drop-8'></div>
+          <div class='drop drop-9'></div>
+          <div class='drop drop-10'></div>
+        </div>
+
+      </div>
+
+
+    <ion-img style="position: fixed; z-index: -2; top: 0%; left: 0%; right: 0%; bottom:0%; width: 100%; height: 100%;" class="logo"
+      src="assets\\imgs\\canva-photo-editor.png"></ion-img>
     <ion-item>
       <div class="temperature">
         <div *ngIf="lastValue!=null" class="valueItem effect1">
@@ -85,8 +150,8 @@
 
           <ion-col>
             <div *ngIf="lastValue!=null" class="valueItemSmall">
-              <div class="values"><br>
-                {{lastValue.humidity}}%
+              <div class="values">
+                <br> {{lastValue.humidity}}%
                 <br>
                 <ion-icon [name]="getArrowIcon('humidity_tendency')"></ion-icon>
               </div>
@@ -97,8 +162,7 @@
           <ion-col>
             <div *ngIf="lastValue!=null" class="valueItemSmall">
               <div class="values">
-                <br>
-                {{lastValue.pressure}}Pa
+                <br> {{lastValue.pressure}}Pa
                 <br>
                 <ion-icon [name]="getArrowIcon('pressure_tendency')"></ion-icon>
               </div>
@@ -137,41 +201,41 @@
   </ion-list>
 
   <div *ngIf="weatherStatus == 1" class="sun">
-      <div class="ray_box">
-          <div class="ray ray1"></div>
-          <div class="ray ray2"></div>
-          <div class="ray ray3"></div>
-          <div class="ray ray4"></div>
-          <div class="ray ray5"></div>
-          <div class="ray ray6"></div>
-          <div class="ray ray7"></div>
-          <div class="ray ray8"></div>
-          <div class="ray ray9"></div>
-          <div class="ray ray10"></div>
-      </div>
+    <div class="ray_box">
+      <div class="ray ray1"></div>
+      <div class="ray ray2"></div>
+      <div class="ray ray3"></div>
+      <div class="ray ray4"></div>
+      <div class="ray ray5"></div>
+      <div class="ray ray6"></div>
+      <div class="ray ray7"></div>
+      <div class="ray ray8"></div>
+      <div class="ray ray9"></div>
+      <div class="ray ray10"></div>
+    </div>
   </div>
 
 
   <div id="background-wrap">
-      <div class="x1">
-          <div class="cloud"></div>
-      </div>
-  
-      <div class="x2">
-          <div class="cloud"></div>
-      </div>
-  
-      <div class="x3">
-          <div class="cloud"></div>
-      </div>
-  
-      <div class="x4">
-          <div class="cloud"></div>
-      </div>
-  
-      <div class="x5">
-          <div class="cloud"></div>
-      </div>
+    <div class="x1">
+      <div class="cloud"></div>
+    </div>
+
+    <div class="x2">
+      <div class="cloud"></div>
+    </div>
+
+    <div class="x3">
+      <div class="cloud"></div>
+    </div>
+
+    <div class="x4">
+      <div class="cloud"></div>
+    </div>
+
+    <div class="x5">
+      <div class="cloud"></div>
+    </div>
   </div>
 
 
