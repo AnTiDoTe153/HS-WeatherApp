@@ -207,6 +207,18 @@
           <p style="color: white; text-overflow:ellipsis;font-size: 17px">Cloud cover refers to the fraction of the sky obscured by clouds when observed from a particular location.</p>
         </ion-card-content>
       </ion-card>
+
+      <ion-card *ngIf="wind!=null">
+          <ion-card-header style="font-size: 25px; font-weight: bold; color: white">
+            Other data
+          </ion-card-header>
+  
+          <ion-card-content text-wrap>
+            <p style="color: white; text-overflow:ellipsis;font-size: 17px">{{getRainingMessage()}}</p>
+            <p style="color: white; text-overflow:ellipsis;font-size: 17px">Wind speed: {{wind.wind_speed}}</p>
+            <p style="color: white; text-overflow:ellipsis;font-size: 17px">Wind direction: {{wind.wind_direction}}</p>
+          </ion-card-content>
+        </ion-card>
     </ion-item>
     
   </ion-list>

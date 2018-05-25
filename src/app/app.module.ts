@@ -13,6 +13,8 @@ import { SettingsPage } from '../pages/settings/settings';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataProvider } from '../providers/data/data';
+import { AgriculturePage } from '../pages/agriculture/agriculture';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { DataProvider } from '../providers/data/data';
     GraphPage,
     SummaryPage,
     ResultsPage,
-    SettingsPage
+    SettingsPage,
+    AgriculturePage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { DataProvider } from '../providers/data/data';
     GraphPage,
     SummaryPage,
     ResultsPage,
-    SettingsPage
+    SettingsPage,
+    AgriculturePage
   ],
   providers: [
     StatusBar,

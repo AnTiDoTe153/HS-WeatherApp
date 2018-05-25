@@ -28,7 +28,7 @@ export class GraphPage {
   }
 
   loadData(){
-    this.dataProvider.getData(this.serverIp).subscribe(data =>{
+    this.dataProvider.getDataWithLimit(this.serverIp, 300).subscribe(data =>{
       this.data = data.json().reverse();
       console.log(this.data);
       this.refreshChart();

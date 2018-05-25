@@ -28,6 +28,14 @@ export class DataProvider {
     return this.http.get("http://" + serverIp + ":5000/weather_history?limit=" + limit);
   }
 
+  getRain(serverIp: string){
+    return this.http.get("http://" + serverIp + ":5000/rain");
+  }
+
+  getWind(serverIp: string){
+    return this.http.get("http://" + serverIp + ":5000/wind");
+  }
+
   getCloud(serverIp: string, limit: number){
     return this.http.get("http://" + serverIp + ":5000/cloud?limit" + limit);
   }

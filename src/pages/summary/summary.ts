@@ -5,6 +5,7 @@ import { Data } from '../../models/data';
 import { Tendency } from '../../models/tendency';
 import { AlertController } from 'ionic-angular';
 import { Renderer } from '@angular/core';
+import { Wind } from '../../models/wind';
 import * as $ from 'jquery';
 
 /**
@@ -27,8 +28,14 @@ export class SummaryPage {
 
   private repeatInterval: any;
   private weatherStatus: number;
-  private clouds: number;
-  private rain: boolean;
+  private clouds: number = 60.1;
+  private rain: boolean = true;
+
+  private wind: Wind = {
+    wind_direction: 182.23,
+    wind_speed: 123,
+    timestamp: 10000
+  }
 
 
   private heatIndexRecommendations = {
@@ -56,6 +63,14 @@ export class SummaryPage {
 
   }
 
+  getRainingMessage(){
+    if(this.rain == true){
+      return "It is currently raining.";
+    }else{
+      return "It is not raining now.";
+    }
+  }
+
   loadValues() {
     return this.dataProvider.getDataWithLimit(this.serverIp, 1).toPromise().then(result => {
       this.lastValue = result.json()[0];
@@ -67,6 +82,14 @@ export class SummaryPage {
       console.log(this.lastValue);
     });
 
+  }
+
+  loadWind(){
+    return this.dataProvider.getWind(this.serverIp).toPromise().then((result) =>{
+      if(result.json() != null){
+        this.wind = result.json()[0];
+      }
+    });
   }
 
   displayCloud(value: number){
@@ -108,14 +131,24 @@ export class SummaryPage {
   }
 
   setRainStatus(){
-    this.rain = true;
+    return this.dataProvider.getRain(this.serverIp).toPromise().then(result =>{
+      if(result.json()[0] != null){
+        if(result.json()[0].rain == 1){
+          this.rain = true;
+        }else{
+          this.rain = false;
+        }
+        console.log("rain status:" + this.rain);
+      }
+    });
   }
+
 
   loadClouds(){
     return this.dataProvider.getCloud(this.serverIp, 1).toPromise().then(result =>{
-      //this.clouds = result.json()[0];
-      this.clouds = 61.7;
-      console.log(this.clouds);
+      if(result.json()[0] != null){
+        this.clouds = result.json()[0].cloud_coverage;
+      }
     });
   }
 
